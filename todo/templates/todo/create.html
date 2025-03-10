@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center pt-3 pb-2">
+  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webp"
+    alt="Check" width="60">
+  <h2 class="my-4">Task Add</h2>
+</div>
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="id_titles" class="form-label">Task Title</label>
+      {{ form.titles }}
+    </div>
+    <div class="mb-3">
+      <label for="id_desc" class="form-label">Description</label>
+      {{ form.desc }}
+    </div>
+    <div class="mb-3">
+      <label for="id_assigned_to" class="form-label">Assigned To</label>
+      {{ form.assigned_to }}
+    </div>
+    <div class="mb-3">
+      <label for="id_priority" class="form-label">Priority</label>
+      {{ form.priority }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+{% endblock %}

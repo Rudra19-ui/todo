@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center pt-3 pb-2">
+  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webp"
+    alt="Check" width="60">
+  <h2 class="my-4">Task List</h2>
+</div>
+<table class="table text-white mb-0">
+  <thead>
+    <tr>
+      <th scope="col">Team Member</th>
+      <th scope="col">Task</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in object_list %}
+    <tr class="fw-normal">
+      <th>
+        {% if task.assigned_to.avatar %}
+          <img src="{{ task.assigned_to.avatar.url }}" alt="avatar" style="width: 45px; height: auto;">
+        {% else %}
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
+            alt="avatar" style="width: 45px; height: auto;">
+        {% endif %}
+        <span class="ms-2">{{ task.assigned_to.user.username }}</span>
+      </th>
+      <td class="align-middle">{{ task.titles }}</td>
+      <td class="align-middle">
+        <h6 class="mb-0">
+          {% if task.priority == 'high' %}
+            <span class="badge bg-danger">High priority</span>
+          {% elif task.priority == 'medium' %}
+            <span class="badge bg-warning">Medium priority</span>
+          {% else %}
+            <span class="badge bg-success">Low priority</span>
+          {% endif %}
+        </h6>
+      </td>
+      <td class="align-middle">
+        <a href="#!" data-mdb-tooltip-init title="Done"><i
+            class="fas fa-check fa-lg text-success me-3"></i></a>
+        <a href="#!" data-mdb-tooltip-init title="Remove"><i
+            class="fas fa-trash-alt fa-lg text-warning"></i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
