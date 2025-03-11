@@ -9,19 +9,19 @@
   <form method="POST">
     {% csrf_token %}
     <div class="mb-3">
-      <label for="id_titles" class="form-label">Task Title</label>
+      <label for="id_titles" class="form-label" style="color: black;">Task Title</label>
       {{ form.titles }}
     </div>
     <div class="mb-3">
-      <label for="id_desc" class="form-label">Description</label>
+      <label for="id_desc" class="form-label" style="color: black;">Description</label>
       {{ form.desc }}
     </div>
     <div class="mb-3">
-      <label for="id_assigned_to" class="form-label">Assigned To</label>
+      <label for="id_assigned_to" class="form-label" style="color: black;">Assigned To</label>
       {{ form.assigned_to }}
     </div>
     <div class="mb-3">
-      <label for="id_priority" class="form-label">Priority</label>
+      <label for="id_priority" class="form-label" style="color: black;">Priority</label>
       {{ form.priority }}
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
